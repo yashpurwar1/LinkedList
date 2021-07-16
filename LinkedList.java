@@ -18,6 +18,15 @@ public class LinkedList {
 			n.next = node;
 		}
 	}
+	
+	public void insertAtStart(int data) {
+		MyNode node = new MyNode();
+		node.data=data;
+		node.next=null;
+		node.next=head;
+		head = node;
+	}
+	
 	public void show() {
 		MyNode node = head;
 		while(node.next!=null) {
