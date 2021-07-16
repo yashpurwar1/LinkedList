@@ -27,6 +27,11 @@ public class LinkedList {
 		head = node;
 	}
 	
+	public void popFirst() {
+		MyNode node = head;
+		head = node.next;
+	}
+	
 	public void insertAt(int index,int data) {
 		MyNode node = new MyNode();
 		node.data=data;
