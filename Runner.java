@@ -6,7 +6,8 @@ public class Runner {
 		list.insert(56);
 		list.insert(70);
 		list.insertAt(1, 30);
-		list.popAt(2);
+		list.findNode(30);
+		
 
 		list.show();
 	}

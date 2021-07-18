@@ -59,6 +59,16 @@ public class LinkedList {
 		n.next=node;
 	}
 	
+	public void findNode(int data) {
+		MyNode node = new MyNode();
+		node= head;
+		while (node.data != data ) {
+			node=node.next;
+		}
+		System.out.println(node.data +" "+ node.next);
+		/// here we will get the node with value data
+	}
+	
 	public void show() {
 		MyNode node = head;
 		while(node.next!=null) {
