@@ -5,98 +5,124 @@ public class LinkedList {
 
 	public void insert(int data) {
 		MyNode node = new MyNode();
-		node.data=data;
-		node.next=null;
+		node.data = data;
+		node.next = null;
 		if (head == null) {
 			head = node;
-		}
-		else {
+		} else {
 			MyNode n = head;
-			while(n.next!=null) {
-				n=n.next;
+			while (n.next != null) {
+				n = n.next;
 			}
 			n.next = node;
 		}
 	}
-	
+
 	public void insertAtStart(int data) {
 		MyNode node = new MyNode();
-		node.data=data;
-		node.next=null;
-		node.next=head;
+		node.data = data;
+		node.next = null;
+		node.next = head;
 		head = node;
 	}
-	
+
 	public void popFirst() {
 		MyNode node = head;
 		head = node.next;
 	}
-	
+
 	public void popAt(int index) {
-		if(index==0) {
-			head=head.next;
-		}
-		else {
+		if (index == 0) {
+			head = head.next;
+		} else {
 			MyNode n = head;
 			MyNode n1 = null;
-			for (int i=0; i<index-1; i++) {
-				n=n.next;
+			for (int i = 0; i < index - 1; i++) {
+				n = n.next;
 			}
 			n1 = n.next;
-			n.next=n1.next;
+			n.next = n1.next;
 		}
 	}
-	
-	public void insertAt(int index,int data) {
+
+	public void insertAt(int index, int data) {
 		MyNode node = new MyNode();
-		node.data=data;
-		node.next=null;
+		node.data = data;
+		node.next = null;
 		MyNode n = head;
-		for (int i=0; i<index-1; i++) {
-			n=n.next;
+		for (int i = 0; i < index - 1; i++) {
+			n = n.next;
 		}
-		node.next=n.next;
-		n.next=node;
+		node.next = n.next;
+		n.next = node;
 	}
-	
+
 	public MyNode findNode(int data) {
 		MyNode node = new MyNode();
-		node= head;
-		while (node.data != data ) {
-			node=node.next;
+		node = head;
+		while (node.data != data) {
+			node = node.next;
 		}
 		return node;
 	}
-	
+
 	public void findNodePushData(int data, int pushedData) {
 		MyNode node = findNode(data);
 		MyNode n = new MyNode();
-		n=head;
-		int count=1;
-		while(node != n) {
-			n=n.next;
+		n = head;
+		int count = 1;
+		while (node != n) {
+			n = n.next;
 			count++;
 		}
 		insertAt(count, pushedData);
 	}
-	
+
 	public void findNodeDeleteData(int data) {
 		MyNode node = findNode(data);
 		MyNode n = new MyNode();
 		n = head;
 		int count = 0;
-		while(node != n) {
-			n=n.next;
+		while (node != n) {
+			n = n.next;
 			count++;
 		}
 		popAt(count);
 	}
-	
+
+	public void sortList()
+    {
+  
+        MyNode current = head, index = null;
+  
+        int temp;
+  
+        if (head == null) {
+            return;
+        }
+        else {
+            while (current != null) {
+                index = current.next;
+  
+                while (index != null) {
+                    if (current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+  
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
+    }
+
 	public void show() {
 		MyNode node = head;
-		while(node.next!=null) {
+		while (node.next != null) {
 			System.out.println(node.data);
-			node=node.next;
+			node = node.next;
 		}
 		System.out.println(node.data);
 	}

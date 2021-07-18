@@ -8,7 +8,7 @@ public class Runner {
 		list.insert(70);
 		list.findNode(30);
 		list.findNodePushData(30, 40);
-		list.findNodeDeleteData(40);
+		list.sortList();
 
 		list.show();
 	}
