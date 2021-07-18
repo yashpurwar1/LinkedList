@@ -80,6 +80,18 @@ public class LinkedList {
 		insertAt(count, pushedData);
 	}
 	
+	public void findNodeDeleteData(int data) {
+		MyNode node = findNode(data);
+		MyNode n = new MyNode();
+		n = head;
+		int count = 0;
+		while(node != n) {
+			n=n.next;
+			count++;
+		}
+		popAt(count);
+	}
+	
 	public void show() {
 		MyNode node = head;
 		while(node.next!=null) {
